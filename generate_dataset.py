@@ -12,6 +12,21 @@ reddit = praw.Reddit(
 
 data = []
 
+
+for submission in reddit.subreddit("TheOnion").top(limit=1000):
+    data.append({"text": submission.title, "label": ""})
+
+for submission in reddit.subreddit("TheOnion").hot(limit=1000):
+    data.append({"text": submission.title, "label": ""})
+
+for submission in reddit.subreddit("TheOnion").new(limit=1000):
+    data.append({"text": submission.title, "label": ""})
+
+for submission in reddit.subreddit("TheOnion").controversial(limit=1000):
+    data.append({"text": submission.title, "label": ""})
+
+# --------------------------------------------------------------
+
 for submission in reddit.subreddit("nottheonion").top(limit=1000):
     data.append({"text": submission.title, "label": ""})
 
@@ -147,31 +162,17 @@ with open("dataset.csv", "w", newline="") as csvfile:
     writer.writeheader()
     writer.writerows(data)
 
-# 1. Read CSV
+# Read CSV
 df = pd.read_csv("dataset.csv")
 
-# 2(a). For complete row duplicate
+# For complete row duplicate
 df.drop_duplicates(inplace=True)
 
-# df = df[len(df.text) > ]
+# Remove text with more than 300 characters
+df = df[df["text"].str.len() < 300]
 
-# 3. Save then
+# Remove text with less than 4 words
+df = df[df["text"].str.split().str.len() > 4]
+
+# Save then
 df.to_csv("data.csv", index=False)
-
-
-# --------------------------------------------------------------
-
-# for submission in reddit.subreddit("bbc").top(limit=1000):
-#     data.append({"text": submission.title, "label": ""})
-
-# for submission in reddit.subreddit("clevercomebacks").top(limit=1000):
-#     data.append({"text": submission.title, "label": ""})
-
-# for submission in reddit.subreddit("cnn").top(limit=1000):
-#     data.append({"text": submission.title, "label": ""})
-
-# for submission in reddit.subreddit("PrivateEye").top(limit=1000):
-#     data.append({"text": submission.title, "label": ""})
-
-# for submission in reddit.subreddit("Clickhole").top(limit=1000):
-#     data.append({"text": submission.title, "label": ""})
