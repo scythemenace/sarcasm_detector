@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{Annotation Guidelines}
+\author{Group 19}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document provides annotation guidelines and description to assist annotators in labeling data accurately and consistently. The goal is to ensure that all annotators understand the labeling process, criteria, and examples clearly, regardless of their background knowledge.
+
+\section{Guidelines}
+
+\subsection{Overview of the Annotator's Job}
+Annotators are responsible for labeling text data according to predefined categories. Their role is to carefully analyze each instance and assign the most appropriate label based on the provided definitions and criteria.
+
+\subsection{Label Set and Descriptions}
+The following labels are available for annotation:
+
+\begin{itemize}
+    \item \textbf{Sarcastic}: Using remarks that clearly mean the opposite of what is said, often to humorously criticize or mock something.
+    \item \textbf{Not-Sarcastic}: Statements that are direct, sincere, and lack any sarcastic intent.
+\end{itemize}
+
+\subsection{Labeling Criteria and Rules}
+To ensure consistency, annotators should follow these steps when labeling data:
+
+\begin{enumerate}
+    \item Read the given text carefully.
+    \item Consider the intended meaning.
+    \item Apply the most suitable label based on the descriptions above i.e., Sarcastic or Not-Sarcastic. 
+    \item If uncertain, and unable to make a decision then pick the "Not-Sarcastic" label.
+\end{enumerate}
+
+\subsection{Examples of Each Label}
+Here are examples illustrating correct labeling decisions:
+
+\begin{itemize}
+    \item \textbf{Example 1}: Thirtysomething scientists unveil doomsday clock of hair loss. \newline
+    Correct Label: \textbf{Sarcastic} 
+
+    \item \textbf{Example 2}: Eat your veggies: 9 deliciously different recipes \newline
+    Correct Label: \textbf{Not-Sarcastic} 
+
+    \item \textbf{Example 3}: Mother comes pretty close to using word 'streaming' correctly \newline
+    Correct Label: \textbf{Sarcastic} 
+
+    \item \textbf{Example 4}: Cat so scared in shelter won't even look at you \newline
+    Correct Label: \textbf{Not-Sarcastic} 
+
+\end{itemize}
+
+\section{Tools to Use}  
+The following options are available for completing the annotation task, given that the dataset is provided in a CSV file:  
+
+\begin{itemize}  
+    \item Use \textbf{Google Sheets} (\href{https://workspace.google.com/intl/en_ca/products/sheets/}{link}) to import and annotate the CSV file (recommended).  
+    \item Use \textbf{Microsoft Excel} to import and annotate the CSV file.  
+    \item Directly edit the CSV file using a text editor or spreadsheet software.  
+
+\end{itemize}  
+
+\end{document}
