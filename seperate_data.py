@@ -153,6 +153,3 @@ while i < 240:
 
 # Unique 240 entries in file   
 new_df.to_csv("data_8.csv", index=False) 
-
-
-# Raw data / Data / Segments --> for readme.md
