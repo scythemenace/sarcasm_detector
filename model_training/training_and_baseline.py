@@ -3,6 +3,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 from sklearn.metrics import f1_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 
 # Loading my dataset
 df = pd.read_csv("../ground_labels/ground_labels.csv")
@@ -59,7 +61,7 @@ print(f"Random Baseline F1-score for validation set: {random_f1_val:.4f}")
 
 # Generate for test sets as well
 random_test_preds = np.random.randint(0, 2, size=len(y_test))
-random_f1_test = f1_score(y_val, random_test_preds)
+random_f1_test = f1_score(y_test, random_test_preds)
 print(f"Random Baseline F1-score for test set: {random_f1_test:.4f}")
 
 # Majority baseline
@@ -73,5 +75,36 @@ print(f"Majority Baseline F1-score for validation set: {majority_f1_val:.4f}")
 
 # Generate for test set
 majority_test_preds = [majority_label] * len(y_test)
-majority_f1_test = f1_score(y_val, majority_test_preds)
+majority_f1_test = f1_score(y_test, majority_test_preds)
 print(f"Majority Baseline F1-score for validation set: {majority_f1_test:.4f}")
+
+# Train the model
+model = LogisticRegression(class_weight='balanced', max_iter=1000, random_state=42) # Without balancing results in 0
+model.fit(X_train, y_train)
+
+# Evaluate on validation set
+val_preds = model.predict(X_val)
+logistic_f1_val = f1_score(y_val, val_preds)
+print(f"Logistic Regression F1-score for validation set: {logistic_f1_val:.4f}")
+
+# Predict on test set
+test_preds = model.predict(X_test)
+logistic_f1_test = f1_score(y_test, test_preds)
+print(f"Logistic Regression F1-score for test set: {logistic_f1_test:.4f}")
+
+
+# Train Random Forest
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42, class_weight='balanced')
+rf_model.fit(X_train, y_train)
+
+# Evaluate
+rf_val_preds = rf_model.predict(X_val)
+rf_f1_val = f1_score(y_val, rf_val_preds)
+print(f"Random Forest F1-score: {rf_f1_val:.4f}")
+
+rf_test_preds = rf_model.predict
+
+# Predict on test set
+rf_test_preds = rf_model.predict(X_test)
+rf_f1_test = f1_score(y_test, rf_test_preds)
+print(f"Random Forest F1-score: {rf_f1_test:.4f}")
