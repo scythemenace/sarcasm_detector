@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load the dataset
-df = pd.read_csv("ground_labels.csv")  # Replace with your file path
+df = pd.read_csv("ground_labels/ground_labels.csv")  # Replace with your file path
 
 # Count occurrences of each label
 label_counts = df['label'].value_counts()
