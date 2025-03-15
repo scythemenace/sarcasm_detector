@@ -2,7 +2,7 @@ import csv
 import pandas as pd
 
 # Read CSV
-df = pd.read_csv("processed_data.csv")
+df = pd.read_csv("../../data/raw/processed_data.csv")
 
 # create new dataframe
 new_df = pd.DataFrame()
@@ -16,8 +16,8 @@ while i < 192:
     i+=1    
 
 # Common 192 entries in file 1 and file 2
-new_df.to_csv("data_1.csv", index=False) 
-new_df.to_csv("data_2.csv", index=False)
+new_df.to_csv("../../data/pre_annotation/data_1.csv", index=False) 
+new_df.to_csv("../../data/pre_annotation/data_2.csv", index=False)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ while i < 48:
     i+=1    
 
 # Unique 48 entries in file 1 
-new_df.to_csv("data_1.csv", index=False, mode="a", header=False) 
+new_df.to_csv("../../data/pre_annotation/data_1.csv", index=False, mode="a", header=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ while i < 48:
     i+=1    
 
 # Unique 48 entries in file 2 
-new_df.to_csv("data_2.csv", index=False, mode="a", header=False) 
+new_df.to_csv("../../data/pre_annotation/data_2.csv", index=False, mode="a", header=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -64,8 +64,8 @@ while i < 96:
     i+=1    
 
 # Common 96 entries in file 3 and file 4
-new_df.to_csv("data_3.csv", index=False) 
-new_df.to_csv("data_4.csv", index=False) 
+new_df.to_csv("../../data/pre_annotation/data_3.csv", index=False) 
+new_df.to_csv("../../data/pre_annotation/data_4.csv", index=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ while i < 144:
     i+=1    
 
 # Unique 144 entries in file 3  
-new_df.to_csv("data_3.csv", index=False, mode="a", header=False) 
+new_df.to_csv("../../data/pre_annotation/data_3.csv", index=False, mode="a", header=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -95,7 +95,7 @@ while i < 144:
     i+=1    
 
 # Unique 144 entries in file   
-new_df.to_csv("data_4.csv", index=False, mode="a", header=False) 
+new_df.to_csv("../../data/pre_annotation/data_4.csv", index=False, mode="a", header=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -110,7 +110,7 @@ while i < 240:
     i+=1    
 
 # Unique 240 entries in file   
-new_df.to_csv("data_5.csv", index=False) 
+new_df.to_csv("../../data/pre_annotation/data_5.csv", index=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -124,7 +124,7 @@ while i < 240:
     i+=1    
 
 # Unique 240 entries in file   
-new_df.to_csv("data_6.csv", index=False) 
+new_df.to_csv("../../data/pre_annotation/data_6.csv", index=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ while i < 240:
     i+=1    
 
 # Unique 240 entries in file   
-new_df.to_csv("data_7.csv", index=False) 
+new_df.to_csv("../../data/pre_annotation/data_7.csv", index=False) 
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -152,4 +152,4 @@ while i < 240:
     i+=1    
 
 # Unique 240 entries in file   
-new_df.to_csv("data_8.csv", index=False) 
+new_df.to_csv("../../data/pre_annotation/data_8.csv", index=False) 

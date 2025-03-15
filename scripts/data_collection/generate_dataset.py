@@ -156,14 +156,14 @@ for submission in reddit.subreddit("politics").controversial(limit=1000):
 # --------------------------------------------------------------
 
 
-with open("dataset.csv", "w", newline="") as csvfile:
+with open("experiment_output.csv", "w", newline="") as csvfile:
     fieldnames = ["text", "label"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerows(data)
 
 # Read CSV
-df = pd.read_csv("dataset.csv")
+df = pd.read_csv("experiment_output.csv")
 
 # For complete row duplicate
 df.drop_duplicates(inplace=True)
@@ -175,4 +175,4 @@ df = df[df["text"].str.len() < 300]
 df = df[df["text"].str.split().str.len() > 4]
 
 # Save then
-df.to_csv("data.csv", index=False)
+df.to_csv("experiment_output.csv", index=False)

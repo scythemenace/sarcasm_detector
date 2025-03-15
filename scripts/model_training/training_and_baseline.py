@@ -8,9 +8,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
 # Loading my dataset
-# df = pd.read_csv("../ground_labels/ground_labels_without3.csv")
+# df = pd.read_csv("../../data/ground_labels/ground_labels_without3.csv")
 
-df = pd.read_csv("../ground_labels/ground_labels.csv")
+df = pd.read_csv("../../data/ground_labels/ground_labels.csv")
 
 # Number of rows Sarcastic vs Not-Sarcastic
 # print(df["label"].value_counts())
@@ -37,10 +37,10 @@ print(f"Train: {len(train_df)}, Validation: {len(val_df)}, Test: {len(test_df)}"
 
 print("----------------------------------------------------------------------")
 
-# Save splits (we’ll modify test later)
-train_df.to_csv("train.csv", index=False)
-val_df.to_csv("val.csv", index=False)
-test_df.to_csv("test_full.csv", index=False)  # Temporary full test set
+# Save splits
+train_df.to_csv("../../data/splits/train.csv", index=False)
+val_df.to_csv("../../data/splits/val.csv", index=False)
+test_df.to_csv("../../data/splits/test_full.csv", index=False)  # Temporary full test set
 
 # Initialize TF-IDF vectorizer
 vectorizer = TfidfVectorizer(max_features=5000, stop_words="english")
@@ -61,14 +61,14 @@ random_preds = np.random.randint(0, 2, size=len(y_val))
 random_f1_val = f1_score(y_val, random_preds)
 random_acc_val = accuracy_score(y_val, random_preds)
 print(f"Random Baseline accuracy for validation set: {random_acc_val:.4f}")
-#print(f"Random Baseline F1-score for validation set: {random_f1_val:.4f}")
+# print(f"Random Baseline F1-score for validation set: {random_f1_val:.4f}")
 
 # Generate for test sets as well
 random_test_preds = np.random.randint(0, 2, size=len(y_test))
 random_f1_test = f1_score(y_test, random_test_preds)
 random_acc_test = accuracy_score(y_test, random_test_preds)
 print(f"Random Baseline accuracy for test set: {random_acc_test:.4f}")
-#print(f"Random Baseline F1-score for test set: {random_f1_test:.4f}")
+# print(f"Random Baseline F1-score for test set: {random_f1_test:.4f}")
 
 print("----------------------------------------------------------------------")
 
@@ -81,21 +81,23 @@ majority_f1_val = f1_score(y_val, majority_preds)
 majority_acc_val = accuracy_score(y_val, majority_preds)
 print(f"Majority Baseline accuracy for validation set: {majority_acc_val:.4f}")
 # majority_f1_val = f1_score(y_val, majority_preds, pos_label=0)
-#print(f"Majority Baseline F1-score for validation set: {majority_f1_val:.4f}")
+# print(f"Majority Baseline F1-score for validation set: {majority_f1_val:.4f}")
 
 # Generate for test set
 majority_test_preds = [majority_label] * len(y_test)
 majority_f1_test = f1_score(y_test, majority_test_preds)
 majority_acc_test = accuracy_score(y_test, majority_test_preds)
 print(f"Majority Baseline accuracy for test set: {majority_acc_test:.4f}")
-#print(f"Majority Baseline F1-score for test set: {majority_f1_test:.4f}")
+# print(f"Majority Baseline F1-score for test set: {majority_f1_test:.4f}")
 
 print("----------------------------------------------------------------------")
 
 # Logistic Regression ----------------------------------------------------------------------
 
 # Train the model
-model = LogisticRegression(class_weight='balanced', max_iter=1000, random_state=42) # Without balancing results in 0
+model = LogisticRegression(
+    class_weight="balanced", max_iter=1000, random_state=42
+)  # Without balancing results in 0
 model.fit(X_train, y_train)
 
 # Evaluate on validation set
@@ -117,7 +119,9 @@ print("----------------------------------------------------------------------")
 # Random Forest ----------------------------------------------------------------------
 
 # Train Random Forest
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42, class_weight='balanced')
+rf_model = RandomForestClassifier(
+    n_estimators=100, random_state=42, class_weight="balanced"
+)
 rf_model.fit(X_train, y_train)
 
 # Evaluate

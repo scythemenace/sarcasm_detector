@@ -1,0 +1,13 @@
+Train: 1142, Validation: 245, Test: 245
+----------------------------------------------------------------------
+Random Baseline accuracy for validation set: 0.4939
+Random Baseline accuracy for test set: 0.4898
+----------------------------------------------------------------------
+Majority Baseline accuracy for validation set: 0.7510
+Majority Baseline accuracy for test set: 0.7551
+----------------------------------------------------------------------
+Logistic Regression accuracy for validation set: 0.6939
+Logistic Regression accuracy for test set: 0.6449
+----------------------------------------------------------------------
+Random Forest accuracy for validation set: 0.6327
+Random Forest accuracy for test set: 0.6286

@@ -1,8 +1,8 @@
 import pandas as pd
 
 # Load CSV files
-df1 = pd.read_csv("data_1.csv")
-df2 = pd.read_csv("data_2.csv")
+df1 = pd.read_csv("../../data/post_annotation/data_1.csv")
+df2 = pd.read_csv("../../data/post_annotation/data_2.csv")
 
 # Merge on 'text' column
 merged = df1.merge(df2, on="text", how="inner", suffixes=("_file1", "_file2"))
@@ -20,8 +20,8 @@ print("User Agreement : ", same_text_label_count1 / same_text_count1)
 print()
 
 # Load CSV files
-df1 = pd.read_csv("data_3.csv")
-df2 = pd.read_csv("data_4.csv")
+df1 = pd.read_csv("../../data/post_annotation/data_3.csv")
+df2 = pd.read_csv("../../data/post_annotation/data_4.csv")
 
 # Merge on 'text' column
 merged = df1.merge(df2, on="text", how="inner", suffixes=("_file1", "_file2"))
