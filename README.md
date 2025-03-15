@@ -94,7 +94,7 @@ project_root/
 ## Contributors
 
 - **[Ankur Pandey]** - pandea23@mcmaster.ca
-- **[Teammate's Name]** - singhd80@mcmaster.ca
+- **[Devansh Singh]** - singhd80@mcmaster.ca
 
 ## Acknowledgments
 
