@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import useDebounce from "./components/useDebounce";
 
 function App() {
   const [inputText, setInputText] = useState("");
   const debouncedInputText = useDebounce(inputText);
+
+  useEffect(() => {}, [debouncedInputText]);
 
   return (
     <>
