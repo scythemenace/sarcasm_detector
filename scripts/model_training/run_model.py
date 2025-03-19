@@ -1,8 +1,10 @@
 from training_and_baseline import random_output, load_models
 from flask import Flask, request, jsonify
 import numpy as np
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Currently I'm allowing everything
 
 vectorizer, model = load_models()
 
